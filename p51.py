@@ -72,7 +72,7 @@ def is_prime(num):
     global PRIMESET
     if num in PRIMESET:
         return True
-    for i in xrange(2, int(ceil(sqrt(num)))+1):
+    for i in xrange(2, int(ceil(sqrt(num))) + 1):
         if not num % i:
             return False
     PRIMESET.add(num)
@@ -87,7 +87,7 @@ def generate_mask_for_num(num):
     size = len(str(num))
     if size in PRIME_MASKS:
         return PRIME_MASKS[size]
-    start = '0'*size
+    start = '0' * size
     # replace first x digits with 1, then permutate
     retval = set()
     for i in xrange(1, size):
@@ -111,7 +111,8 @@ def generate_combos_from_number(starting_num):
     masks = generate_mask_for_num(starting_num)
     retval = set()
     for mask in masks:
-        applied_mask = "".join(x if y != '1' else '*' for x, y in zip(str(starting_num), mask))
+        applied_mask = "".join(
+            x if y != '1' else '*' for x, y in zip(str(starting_num), mask))
         retval.add(applied_mask)
     return retval
 
@@ -170,14 +171,16 @@ def main():
             COMBO_RESULTS[combo] = tf
             if tf:
                 total = return_amount_of_primes_in_a_list(numbers)
-                # print "Prime {}: Combo {}: {} of 10 are prime".format(prime, comboloopcount, total)
+                # print "Prime {}: Combo {}: {} of 10 are prime".format(prime,
+                # comboloopcount, total)
                 if total == 8:
                     print "GOT IT!"
                     print combo
                     print numbers
                     print min(numbers)
-                    debug.finish()
                     sys.exit()
+
+# Todo: This would be better as actual unittest's
 
 
 def runtests():
@@ -197,19 +200,19 @@ def runtests():
     result = generate_combos_from_number(103)
     assert expected == result, "{} != {}".format(expected, result)
 
-    expected = set((13,23,33,43,53,63,73,83,93))
+    expected = set((13, 23, 33, 43, 53, 63, 73, 83, 93))
     result = generate_numbers_from_string_pattern('*3')
     assert expected == result, "{} != {}".format(expected, result)
 
-    expected = set((10,11,12,13,14,15,16,17,18,19))
+    expected = set((10, 11, 12, 13, 14, 15, 16, 17, 18, 19))
     result = generate_numbers_from_string_pattern('1*')
     assert expected == result, "{} != {}".format(expected, result)
 
-    expected = set((103,113,123,133,143,153,163,173,183,193))
+    expected = set((103, 113, 123, 133, 143, 153, 163, 173, 183, 193))
     result = generate_numbers_from_string_pattern('1*3')
     assert expected == result, "{} != {}".format(expected, result)
 
-    expected = set((113,223,333,443,553,663,773,883,993))
+    expected = set((113, 223, 333, 443, 553, 663, 773, 883, 993))
     result = generate_numbers_from_string_pattern('**3')
     assert expected == result, "{} != {}".format(expected, result)
 
@@ -234,4 +237,3 @@ def runtests():
 
 if __name__ == '__main__':
     main()
-

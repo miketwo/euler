@@ -18,26 +18,28 @@ natural numbers and the square of the sum.
 from itertools import count
 import debug
 
+
 def sum_square(maxnum):
     total = 0
-    for i in xrange(1, maxnum+1):
+    for i in xrange(1, maxnum + 1):
         total += i**2
     return total
 
+
 def square_sum(maxnum):
     total = 0
-    for i in xrange(1, maxnum+1):
+    for i in xrange(1, maxnum + 1):
         total += i
     return total**2
+
 
 def main():
     num = 100
     a = sum_square(num)
     b = square_sum(num)
     c = b - a
-    print "{}, {}, {}".format(a,b,c)
+    print "{}, {}, {}".format(a, b, c)
 
 
 if __name__ == '__main__':
     main()
-

@@ -67,6 +67,7 @@ HAND_VALUES = {
 
 @total_ordering
 class Card(object):
+
     def __init__(self, text):
         self.text = text
         value = text[0]
@@ -104,6 +105,7 @@ class Card(object):
 
 @total_ordering
 class Hand(object):
+
     def __init__(self, text):
         self.cards = [Card(x) for x in text.split()]
         self.values = [c.value for c in sorted(self.cards)]
@@ -132,7 +134,8 @@ class Hand(object):
     def _4k(self):
         pass
         # if 4 in self.group():
-            # return (HAND_VALUES['Four of a Kind'], #value of 4k, #value of other card)
+        # return (HAND_VALUES['Four of a Kind'], #value of 4k, #value of other
+        # card)
 
     def _3k(self):
         return 3 in self.group()
@@ -150,7 +153,7 @@ class Hand(object):
         return len(set(self.suits)) == 1
 
     def _isStraight(self):
-        return [x-self.values[0] for x in self.values] == [0, 1, 2, 3, 4]
+        return [x - self.values[0] for x in self.values] == [0, 1, 2, 3, 4]
 
     def _highcard(self):
         return self.values[-1]
@@ -241,8 +244,8 @@ class BasicTests(unittest.TestCase):
         self.assertFalse(result)
 
 
-
 class ComparisonTests(unittest.TestCase):
+
     def test_one_pair(self):
         # One pair
         h1, h2 = Hand('5H 5C 6S 7S KD'), Hand('2C 3S 8S 8D TD')

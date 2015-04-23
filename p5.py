@@ -10,12 +10,13 @@ numbers from 1 to 20?
 from itertools import count
 import debug
 
+
 def check_number(num, maxdivisor):
     ''' Returns True/False if a number is divisible by all integers from 1 to
     maxdivisor. '''
     # This loop starts from the highest divisor and works back, because it's
     # more likely to return fast that way.
-    for x in xrange(maxdivisor,1,-1):
+    for x in xrange(maxdivisor, 1, -1):
         if num % x:
             return False
     return True
@@ -39,4 +40,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

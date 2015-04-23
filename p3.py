@@ -9,6 +9,8 @@ from time import time
 
 # Prints all primes for a given number.
 # Uses recursion
+
+
 def factor(number):
     # Divide the number by every prime lower than it.
     # it it divides evenly, do it again with the remainder.

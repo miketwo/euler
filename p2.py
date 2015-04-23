@@ -11,6 +11,7 @@ four million, find the sum of the even-valued terms.
 '''
 from collections import deque
 
+
 def fibonacci(maxnum):
     nums = deque(maxlen=2)
     nums.append(1)
@@ -25,14 +26,15 @@ def fibonacci(maxnum):
         else:
             break
 
+
 def main():
     total = 0
     i = 0
     for fib in fibonacci(4000000):
         i += 1
-        if not fib%2:
+        if not fib % 2:
             total += fib
-            print "{:5}: {:10} -- {:10}".format(i,fib,total)
+            print "{:5}: {:10} -- {:10}".format(i, fib, total)
     print "---------------------"
     print total
 

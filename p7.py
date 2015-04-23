@@ -8,6 +8,7 @@ What is the 10001st prime number?
 
 from math import sqrt, ceil
 
+
 def prime_generator():
     yield 2
     yield 3
@@ -17,9 +18,10 @@ def prime_generator():
         if is_prime(num):
             yield num
 
+
 def is_prime(num):
-    for i in xrange(2, int(ceil(sqrt(num)))+1):
-        if num%i==0:
+    for i in xrange(2, int(ceil(sqrt(num))) + 1):
+        if num % i == 0:
             return False
     return True
 
@@ -36,4 +38,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
